@@ -12,7 +12,8 @@ Amazon EC2), then you must also put the keys in the right place, with the right
 ownership and permissions. Screw up any tiny part and OpenSSH will stubbornly
 and unhelpfully block the new user without any explanation why.
 
-    Yo dawg, I heard you like ``-vvv`` flags so I put some ``LogLevel VERBOSE`` in your ``sshd_config``.
+    Yo dawg, I heard you like ``-vvv`` flags so I put some ``LogLevel VERBOSE``
+    in your ``sshd_config`` so you can debug your SSH when you debug your SSH.
 
     -Xzibit's endorsement of ``sshadduser`` (paraphrased)
 
@@ -41,11 +42,18 @@ somebody else to use it, just point them at this README.
 Installation
 ------------
 
-``python3`` and ``pip3`` are prerequisites. Once you have those, run:
+``python3`` and ``pip3`` are prerequisites. If you have ``python3`` but not
+``pip3``, you can install the latter as follows:
 
 .. code:: bash
 
-    $ sudo pip3 install sshadduser
+    $ curl --silent https://bootstrap.pypa.io/get-pip.py | sudo -H python3
+
+Once you have the prerequisites, run:
+
+.. code:: bash
+
+    $ sudo -H pip3 install sshadduser
 
 Usage
 -----
@@ -59,11 +67,11 @@ groups:
 
     $ sudo sshadduser jane sudo rockstar
     Enter a password (or leave blank to generate random password):
-    
+
     Enter SSH keys one per line. A blank line terminates.
     ssh-rsa AAAAB3NzaC1yc2EAAAAblahblahblah jane@laptop
     ssh-rsa AAAAB3NzaC1yc2EAAAAdoowopdoowop jane@desktop
-    
+
     Created an account named jane with password e0UkMmvPW6mT and 2 SSH keys.
     Added supplemental groups: sudo and rockstar.
 

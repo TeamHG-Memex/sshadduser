@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='sshadduser',
-    version='0.3',
+    version='0.5',
     author='Mark E. Haase',
     author_email='mehaase@gmail.com',
     description='1-step to create user with SSH keys',
@@ -22,6 +22,7 @@ setup(
     install_requires=[
         'Click',
     ],
+    py_modules=['sshadduser'],
     entry_points='''
         [console_scripts]
         sshadduser=sshadduser:main
