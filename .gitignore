@@ -1,0 +1,8 @@
+__pycache__
+_build
+build
+.coverage
+dist
+*.egg-info
+pyvenv
+.test_env
