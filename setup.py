@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='sshadduser',
-    version='0.1',
+    version='0.3',
     author='Mark E. Haase',
     author_email='mehaase@gmail.com',
     description='1-step to create user with SSH keys',

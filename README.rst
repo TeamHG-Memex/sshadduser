@@ -4,14 +4,13 @@ sshadduser
 Problem
 -------
 
-This simple script Imagine that you have SSH access to a server and you need to
-grant access to a coworker. You must remember to perform multiple steps, such
-as creating a home directory, setting a password, making sure the user is
-included in the correct groups, etc. If the server requires public key
-authentication (the default for Amazon EC2), then you must also put the keys in
-the right place, with the right ownership and permissions. Screw up any tiny
-part and OpenSSH will stubbornly and unhelpfully block the new user without any
-explanation why.
+Imagine that you have SSH access to a server and you need to grant access to a
+coworker. You must remember to perform multiple steps, such as creating a home
+directory, setting a password, making sure the user is included in the correct
+groups, etc. If the server requires public key authentication (the default for
+Amazon EC2), then you must also put the keys in the right place, with the right
+ownership and permissions. Screw up any tiny part and OpenSSH will stubbornly
+and unhelpfully block the new user without any explanation why.
 
     Yo dawg, I heard you like `-vvv` flags so I put some `LogLevel VERBOSE` in your `sshd_config`. 
 
