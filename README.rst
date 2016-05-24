@@ -12,9 +12,9 @@ Amazon EC2), then you must also put the keys in the right place, with the right
 ownership and permissions. Screw up any tiny part and OpenSSH will stubbornly
 and unhelpfully block the new user without any explanation why.
 
-    Yo dawg, I heard you like `-vvv` flags so I put some `LogLevel VERBOSE` in your `sshd_config`. 
+    Yo dawg, I heard you like ``-vvv`` flags so I put some ``LogLevel VERBOSE`` in your ``sshd_config``.
 
-    -Xzibit's endorsement of `sshadduser` (paraphrased)
+    -Xzibit's endorsement of ``sshadduser`` (paraphrased)
 
 Solution
 --------
@@ -33,10 +33,10 @@ you'd have to copy that bash script everywhere you ever wanted to use it. And
 if you wanted somebody else to grant SSH access *to you*, then you'd have to
 explain to them how to use your script first.
 
-On the other hand, `sshadduser` has super simple syntax. It runs interactively,
-so you don't need to memorize a bunch of command line flags to use it. It's
-easy to install on any reasonably modern \*nix. And if you want somebody else
-to use it, just point them at this README.
+On the other hand, ``sshadduser`` has super simple syntax. It runs
+interactively, so you don't need to memorize a bunch of command line flags to
+use it. It's easy to install on any reasonably modern \*nix. And if you want
+somebody else to use it, just point them at this README.
 
 Installation
 ------------
@@ -52,7 +52,8 @@ Usage
 
 Specify the name of the user to create followed by supplemental groups (if
 any). You will be prompted for a password and optional OpenSSH keys. For
-example to create a user `jane` and add her to `sudo` and `rockstar` groups:
+example to create a user ``jane`` and add her to ``sudo`` and ``rockstar``
+groups:
 
 .. code:: bash
 
