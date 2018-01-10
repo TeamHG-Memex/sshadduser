@@ -68,6 +68,8 @@ groups:
     $ sudo sshadduser jane sudo rockstar
     Enter a password (or leave blank to generate random password):
 
+    Path to shell (or leave blank for system default):
+    /bin/bash
     Enter SSH keys one per line. A blank line terminates.
     ssh-rsa AAAAB3NzaC1yc2EAAAAblahblahblah jane@laptop
     ssh-rsa AAAAB3NzaC1yc2EAAAAdoowopdoowop jane@desktop

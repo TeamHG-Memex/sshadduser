@@ -46,8 +46,9 @@ def main(username, groups, verbosity):
         _check_username(username)
         _check_groups(groups)
         password = _get_password()
+        shell = _get_shell()
         ssh_keys = _get_ssh_keys()
-        _wait_for(_useradd(username, groups))
+        _wait_for(_useradd(username, groups, shell))
         _wait_for(_chpasswd(username, password))
         _add_authorized_keys(username, ssh_keys)
 
@@ -200,6 +201,40 @@ def _get_password(length=12):
     return password
 
 
+def _get_shell():
+    '''
+    Prompt for a path to shell. If blank, use system default.
+    '''
+
+    logger.debug('Asking for a shell.')
+
+    if sys.stdin.isatty:
+        click.secho(
+            'Path to shell (or leave blank for system default):',
+            fg='green'
+        )
+
+    shell = sys.stdin.readline().strip()
+
+    if shell == '':
+        shell = None
+        logger.debug('Using system default shell.')
+    elif not (os.path.isfile(shell) and os.access(shell, os.X_OK)):
+        if sys.stdin.isatty:
+            click.secho(
+                'Invalid shell: {} (does it exist? is it executable?)'
+                .format(shell),
+                fg='red'
+            )
+            shell = _get_shell()
+        else:
+            raise click.ClickException('Invalid shell: {}'.format(shell))
+    else:
+        logger.debug('Shell is: {}.'.format(shell))
+
+    return shell
+
+
 def _get_ssh_keys():
     '''
     Prompt for SSH keys, one per line, on stdin. A blank line terminates.
@@ -257,16 +292,22 @@ def _wait_for(process):
         raise click.ClickException(msg.format(*params))
 
 
-def _useradd(username, groups):
+def _useradd(username, groups, shell=None):
     ''' Use POSIX ``useradd`` to add the requested user. '''
 
     command = [
         'useradd',
         '--create-home',
-        '--groups', ','.join(groups),
-        username
     ]
 
+    if len(groups):
+        command.extend(['--groups', ','.join(groups)])
+
+    if shell is not None:
+        command.extend(['--shell', shell])
+
+    command.append(username)
+    logger.debug('Adding user: {}'.format(command))
     return subprocess.Popen(command, stderr=subprocess.PIPE)
 
 
