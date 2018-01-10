@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='sshadduser',
-    version='0.5',
+    version='1.0',
     author='Mark E. Haase',
     author_email='mehaase@gmail.com',
     description='1-step to create user with SSH keys',
@@ -11,7 +11,7 @@ setup(
     keywords='open ssh add user authorized keys',
     url='https://github.com/TeamHG-Memex/sshadduser',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
