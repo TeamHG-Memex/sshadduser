@@ -257,8 +257,13 @@ def _get_ssh_keys():
         if line == '':
             break
         if not line.startswith('ssh-'):
-            msg = 'This does not look like an OpenSSH public key: {}'
-            raise click.ClickException(msg.format(line))
+            msg = 'That doesn\'t look like an OpenSSH public key! ' \
+                  '(It should start with "ssh-") {}'
+            if sys.stdin.isatty:
+                click.secho(msg, fg='red')
+                continue
+            else:
+                raise click.ClickException(msg.format(line))
         ssh_keys.append(line)
 
     logger.debug('SSH keys: got {} lines.'.format(len(ssh_keys)))
