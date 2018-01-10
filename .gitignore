@@ -4,5 +4,5 @@ build
 .coverage
 dist
 *.egg-info
-pyvenv
+venv
 .test_env

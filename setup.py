@@ -23,6 +23,7 @@ setup(
         'Click',
     ],
     py_modules=['sshadduser'],
+    python_requires='>=3',
     entry_points='''
         [console_scripts]
         sshadduser=sshadduser:main
