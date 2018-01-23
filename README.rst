@@ -42,18 +42,30 @@ somebody else to use it, just point them at this README.
 Installation
 ------------
 
-``python3`` and ``pip3`` are prerequisites. If you have ``python3`` but not
-``pip3``, you can install the latter as follows:
+This package requires Python 3.
 
-.. code:: bash
-
-    $ curl --silent https://bootstrap.pypa.io/get-pip.py | sudo -H python3
-
-Once you have the prerequisites, run:
+If you have ``pip3`` installed, then you can quickly install ``sshadduser`` as 
+follows:
 
 .. code:: bash
 
     $ sudo -H pip3 install sshadduser
+
+If you do not have ``pip3``, then you should install from a tarball instead:
+
+.. code:: bash
+
+    $ wget https://github.com/TeamHG-Memex/sshadduser/archive/1.0.tar.gz -O sshadduser.tgz
+    $ tar xzf sshadduser.tgz
+    $ cd sshadduser-1.0 && sudo python3 setup.py install
+
+Whichever installation path you take, you should verify correct installation
+by running the following:
+
+.. code:: bash
+
+    $ sshadduser --version
+    sshadduser, version 1.0
 
 Usage
 -----
