@@ -110,3 +110,9 @@ has not been tested on many platforms. It has been tested on Ubuntu 14.04 and
 16.04, and it should work on other systems, too. If you find that it does not
 run somewhere that you need it, file an issue or — better yet — submit a pull
 request.
+
+----
+
+.. image:: https://hyperiongray.s3.amazonaws.com/define-hg.svg
+	:target: https://hyperiongray.com/?pk_campaign=github&pk_kwd=sshadduser
+	:alt: define hyperiongray
