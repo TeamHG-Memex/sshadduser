@@ -1,0 +1,4 @@
+./setup.py
+./AGENTS.md
+./sshadduser.py
+./make_release.sh
